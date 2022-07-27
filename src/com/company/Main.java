@@ -32,6 +32,9 @@ import com.company.models.Proxy.ProxyWizard;
 import com.company.models.Proxy.WizardTowerProxy;
 import com.company.models.Singleton.Categories;
 import com.company.models.Singleton.IvoryTower;
+import com.company.models.Strategy.DragonSlayer;
+import com.company.models.Strategy.MeeleStrategy;
+import com.company.models.Strategy.SpellStrategy;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -161,5 +164,12 @@ public class Main {
         System.out.println(ford);
         Vehicle fordClone = (Vehicle) ford.clone();
         System.out.println(fordClone);
+
+        // Strategy
+
+        DragonSlayer dragonSlayer = new DragonSlayer(new MeeleStrategy());
+        dragonSlayer.execute();
+        dragonSlayer.changeStrategy(new SpellStrategy());
+        dragonSlayer.execute();
     }
 }
